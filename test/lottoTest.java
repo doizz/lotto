@@ -1,10 +1,8 @@
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class lottoTest {
-
-    @Test
-    public void lottoNumber(){
-
-    }
 
 }
