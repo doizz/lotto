@@ -21,7 +21,7 @@ class LottoTicketFactoryTest {
 
     @DisplayName("금액 부족으로 로또를 구매할 수 없는 경우 Exception 테스트")
     @ParameterizedTest
-    @ValueSource(ints = { 999, 2, 1, 10, 892 })
+    @ValueSource(ints = { 999,10, 888 })
     void invalid_Price(int price) {
         assertThatThrownBy(() -> {
             LottoTicketFactory.buyLotto(price);
