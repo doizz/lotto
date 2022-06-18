@@ -13,5 +13,9 @@ public class LottoService {
         Lottos lottoTickets = LottoTicketFactory.buyLotto(InputView.BuyLottoTicketCount());
         ResultView.lottoNumberPrint(lottoTickets);
         Lotto winningNumber = WinningNumber.winningNumberGenerate(InputView.inputWinningNumber());
+        Lottos.match(winningNumber);
+
+//        WinningNumber.match(lottoTickets, winningNumber);
+
     }
 }

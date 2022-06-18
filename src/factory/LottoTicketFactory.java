@@ -15,23 +15,23 @@ public class LottoTicketFactory {
     private static final int MIN_LOTTO_NUMBER = 1;
     private static final int MAX_LOTTO_NUMBER = 45;
 
-    private static final List<Integer> LOTTO_NUMBER = IntStream.rangeClosed(MIN_LOTTO_NUMBER,MAX_LOTTO_NUMBER)
-                                                               .boxed()
-                                                               .collect(Collectors.toList());
+    private static final List<Integer> LOTTO_NUMBER = IntStream.rangeClosed(MIN_LOTTO_NUMBER, MAX_LOTTO_NUMBER)
+            .boxed()
+            .collect(Collectors.toList());
 
     public static Lottos buyLotto(int price) {
         validatePrice(price);
         return Stream.generate(LottoTicketFactory::generateLottoTicket)
-                     .limit(price / MIN_BUY_TICKET_PRICE)
-                     .collect(Collectors.collectingAndThen(Collectors.toList(), Lottos::of));
+                .limit(price / MIN_BUY_TICKET_PRICE)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Lottos::of));
     }
 
-    public static Lotto generateLottoTicket(){
+    public static Lotto generateLottoTicket() {
         Collections.shuffle(LOTTO_NUMBER);
         return LOTTO_NUMBER.stream()
-                           .limit(LOTTO_NUMBER_MAX_SIZE)
-                           .sorted()
-                           .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
+                .limit(LOTTO_NUMBER_MAX_SIZE)
+                .sorted()
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
     }
 
     private static void validatePrice(int price) {

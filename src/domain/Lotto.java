@@ -7,17 +7,18 @@ import java.util.stream.Stream;
 public class Lotto {
     private final List<Integer> lottoNumbers;
 
-    public Lotto(List<Integer> lottoNumbers) {
+    private Lotto(List<Integer> lottoNumbers) {
         this.lottoNumbers = lottoNumbers;
     }
 
     public static Lotto of(List<Integer> lottoNumbers) {
         return new Lotto(lottoNumbers);
     }
-
-    public Stream<Integer> stream() {
-        return lottoNumbers.stream();
-    }
+//    public int hitCount(Lotto winningNumber) {
+//        int count = 0;
+//
+//        return count;
+//    }
 
     @Override
     public String toString() {
