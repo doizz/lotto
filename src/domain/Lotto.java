@@ -2,10 +2,9 @@ package domain;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 public class Lotto {
-    private final List<Integer> lottoNumbers;
+    private static List<Integer> lottoNumbers;
 
     private Lotto(List<Integer> lottoNumbers) {
         this.lottoNumbers = lottoNumbers;
@@ -14,7 +13,15 @@ public class Lotto {
     public static Lotto of(List<Integer> lottoNumbers) {
         return new Lotto(lottoNumbers);
     }
-//    public int hitCount(Lotto winningNumber) {
+
+//    public static int hitCount(Lotto winningNumber) {
+//        for (Integer i : lottoNumbers) {
+//            System.out.println("i = " + i);
+//            if (lottoNumbers.contains(winningNumber)) {
+//
+//            }
+//            ;
+//        }
 //        int count = 0;
 //
 //        return count;

@@ -15,7 +15,7 @@ class LottoTicketFactoryTest {
     @ParameterizedTest
     @CsvSource(value = {"1001 :1", "12780 :12", "1999 :1", "234567 : 234" }, delimiter = ':')
     void lotto_Ticket_Purchase_Test(int price, int ticketCount) {
-        Lottos lottos = LottoTicketFactory.buyLotto(price);
+        Lottos lottos = Lottos.lottoGenerate(price);
         assertThat(lottos.getLottoCount()).isEqualTo(ticketCount);
     }
 
@@ -24,7 +24,7 @@ class LottoTicketFactoryTest {
     @ValueSource(ints = { 999,10, 888 })
     void invalid_Price(int price) {
         assertThatThrownBy(() -> {
-            LottoTicketFactory.buyLotto(price);
+            Lottos.lottoGenerate(price);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }

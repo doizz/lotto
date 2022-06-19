@@ -1,9 +1,13 @@
 package domain;
 
+import factory.LottoFactory;
+
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Lottos {
+    private static final int MIN_BUY_TICKET_PRICE = 1000;
     private final List<Lotto> lottos;
 
     private Lottos(List<Lotto> lottos) {
@@ -14,13 +18,26 @@ public class Lottos {
         return new Lottos(lottos);
     }
 
-    public static int match(Lotto winningNumber) {
-//        for(Lotto l : lottos){
+    public static Lottos lottoGenerate(int price) {
+        validatePrice(price);
+        return Stream.generate(LottoFactory::generateLotto)
+                .limit(price / MIN_BUY_TICKET_PRICE)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Lottos::of));
+    }
+
+    private static void validatePrice(int price) {
+        if (price < MIN_BUY_TICKET_PRICE) {
+            throw new IllegalArgumentException("금액이 부족합니다.");
+        }
+    }
+
+//    public int lottoNumberMatch(Lotto winningNumber) {
+//        for (Lotto lottoNumber : lottos) {
 //            Lotto.hitCount(winningNumber);
 //        }
-        return 0;
+//        return 0;
 //        Lottos.stream().forEach(System.out::println);
-    }
+//    }
 
     public Stream<Lotto> stream() {
         return lottos.stream();
