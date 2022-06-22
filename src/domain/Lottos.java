@@ -31,13 +31,15 @@ public class Lottos {
         }
     }
 
-//    public int lottoNumberMatch(Lotto winningNumber) {
-//        for (Lotto lottoNumber : lottos) {
-//            Lotto.hitCount(winningNumber);
-//        }
-//        return 0;
-//        Lottos.stream().forEach(System.out::println);
-//    }
+    public LottoResults lottoNumberMatch(Lotto winningNumber) {
+        LottoResults lottoResults = LottoResults.of();
+        lottos.stream().forEach(System.out::println);
+        for (Lotto lotto : lottos) {
+            lottoResults.win(lotto.getHitCount(winningNumber));
+        }
+        return lottoResults;
+
+    }
 
     public Stream<Lotto> stream() {
         return lottos.stream();

@@ -2,9 +2,7 @@ package service;
 
 import common.InputView;
 import common.ResultView;
-import domain.Lotto;
-import domain.WinningNumber;
-import domain.Lottos;
+import domain.*;
 
 public class LottoService {
 
@@ -12,7 +10,8 @@ public class LottoService {
         Lottos lottoTickets = Lottos.lottoGenerate(InputView.BuyLottoTicketCount());
         ResultView.lottoNumberPrint(lottoTickets);
         Lotto winningNumber = WinningNumber.winningNumberGenerate(InputView.inputWinningNumber());
-//        Lottos.lottoNumberMatch(winningNumber);
-
+        System.out.println("winningNumber = " + winningNumber);
+        LottoResults lr = lottoTickets.lottoNumberMatch(winningNumber);
+        ResultView.printLottoResult(lr);
     }
 }

@@ -1,32 +1,38 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Lotto {
-    private static List<Integer> lottoNumbers;
+    private List<LottoNumber> lottoNumbers;
 
     private Lotto(List<Integer> lottoNumbers) {
-        this.lottoNumbers = lottoNumbers;
+        this.lottoNumbers = convertIntegerToLottoNo(lottoNumbers);
+    }
+
+    public List<LottoNumber> convertIntegerToLottoNo(List<Integer> numbers) {
+        return numbers.stream()
+                .map(LottoNumber::new)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static Lotto of(List<Integer> lottoNumbers) {
         return new Lotto(lottoNumbers);
     }
 
-//    public static int hitCount(Lotto winningNumber) {
-//        for (Integer i : lottoNumbers) {
-//            System.out.println("i = " + i);
-//            if (lottoNumbers.contains(winningNumber)) {
-//
-//            }
-//            ;
-//        }
-//        int count = 0;
-//
-//        return count;
-//    }
+    public int getHitCount(Lotto winningLotto) {
+        return winningLotto.stream()
+                .filter(lottoNumbers::contains)
+                .map(e -> 1)
+                .reduce(0, Integer::sum);
+    }
 
+    public Stream<LottoNumber> stream() {
+        return lottoNumbers.stream();
+    }
     @Override
     public String toString() {
         return String.valueOf(lottoNumbers);

@@ -17,22 +17,23 @@ public enum Rank {
         this.money = money;
     }
 
-    public static Rank of(int matchCount) {
-        return Arrays.stream(Rank.values())
-                .filter(rank -> rank.isSameMatchCount(matchCount))
-                .findFirst()
-                .orElse(NO_MATCH);
+    public int getMatchCount() {
+        return matchCount;
     }
 
-    private boolean isSameMatchCount(int matchCount) {
-        return this.matchCount == matchCount;
+    public int getMoney() {
+        return money;
+    }
+
+    public static Rank matchOf(int matchCount) {
+        return Arrays.stream(Rank.values())
+                .filter(rank -> rank.getMatchCount() == matchCount)
+                .findFirst()
+                .orElse(NO_MATCH);
     }
 
     public int sumMoney(int totalMoney) {
         return money + totalMoney;
     }
 
-    public int getMoney() {
-        return money;
-    }
 }
