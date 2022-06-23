@@ -8,10 +8,8 @@ import domain.Lottos;
 public class ResultView {
 
     private ResultView() {}
-    private static final String BUYING_FORMAT = "%d개를 구매했습니다.\n%s\n\n";
     private static final String WINNINNG_STATISTICS_MESSAGE = "당첨 통계.\n---------";
     private static final String STATISTICS_STATUS= "%d개 일치 (%d원)- %d개";
-    private static final String TOTAL_REVENUS= "총 수익률은 %.2f 입니다";
 
     public static void resultMessage(Object message){System.out.print(message);}
 
@@ -28,13 +26,10 @@ public class ResultView {
         StringBuilder sb = new StringBuilder();
 
         for (LottoResult value : prizes.getLottoResults()) {
-            sb.append(String.format(STATISTICS_STATUS, value.getMatchCount(), value.getMoney(), 1));
+            sb.append(String.format(STATISTICS_STATUS, value.getMatchCount(), value.getMoney(), value.getWinCount()));
             sb.append("\n");
         }
         return sb.toString();
     }
 
-    public static void printProfit(int purchaseAmount, LottoResults prizes) {
-        System.out.printf((TOTAL_REVENUS) + "%n", (double)10/ purchaseAmount);
-    }
 }

@@ -33,12 +33,10 @@ public class Lottos {
 
     public LottoResults lottoNumberMatch(Lotto winningNumber) {
         LottoResults lottoResults = LottoResults.of();
-        lottos.stream().forEach(System.out::println);
         for (Lotto lotto : lottos) {
             lottoResults.win(lotto.getHitCount(winningNumber));
         }
         return lottoResults;
-
     }
 
     public Stream<Lotto> stream() {

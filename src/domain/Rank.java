@@ -32,8 +32,5 @@ public enum Rank {
                 .orElse(NO_MATCH);
     }
 
-    public int sumMoney(int totalMoney) {
-        return money + totalMoney;
-    }
 
 }
