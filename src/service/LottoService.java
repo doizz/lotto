@@ -7,10 +7,10 @@ import domain.*;
 public class LottoService {
 
     public void lottoStart() {
-        Lottos lottos = Lottos.lottoGenerate(InputView.BuyLottoTicketCount());
+        Lottos lottos = Lottos.lottoGenerate(InputView.LottosOrder());
         ResultView.lottoNumberPrint(lottos);
-        Lotto winningNumber = WinningNumber.winningNumberGenerate(InputView.inputWinningNumber());
-        LottoResults lottosResults = lottos.lottoNumberMatch(winningNumber);
-        ResultView.printLottoResult(lottosResults);
+        Lotto winningNumber = Lotto.winningNumberGenerate(InputView.inputWinningNumber());
+        LottoResults lottoResults = lottos.lottoNumberMatch(winningNumber);
+        ResultView.printLottoResult(lottoResults);
     }
 }

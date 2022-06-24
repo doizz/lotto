@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -17,6 +18,12 @@ public class Lotto {
         return numbers.stream()
                 .map(LottoNumber::new)
                 .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public static Lotto winningNumberGenerate(String winningNumber) {
+        return Arrays.stream(winningNumber.split(","))
+                .map(Integer::parseInt)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
     }
 
     public static Lotto of(List<Integer> lottoNumbers) {
