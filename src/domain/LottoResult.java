@@ -19,6 +19,7 @@ public class LottoResult {
         }
         count.plus();
     }
+
     public int getWinCount() {
         return count.getCount();
     }

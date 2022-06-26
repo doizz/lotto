@@ -1,7 +1,6 @@
 package factory;
 
 import domain.Lotto;
-import domain.LottoNumber;
 
 import java.util.Collections;
 import java.util.List;

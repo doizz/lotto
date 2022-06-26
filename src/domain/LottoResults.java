@@ -17,21 +17,18 @@ public class LottoResults {
                 .map(LottoResult::of)
                 .collect(Collectors.toList()));
     }
-
     public void win(int hitCount) {
         for (LottoResult result : lottoResults) {
             result.win(hitCount);
         }
     }
-
     public List<LottoResult> getLottoResults() {
         return Collections.unmodifiableList(this.lottoResults);
     }
-
-    public int getTotalReward() {
-        return lottoResults.stream()
-                .map(LottoResult::winningProfit)
-                .reduce(0, Integer::sum);
-    }
+//    public int getTotalReward() {
+//        return lottoResults.stream()
+//                .map(LottoResult::winningProfit)
+//                .reduce(0, Integer::sum);
+//    }
 
 }

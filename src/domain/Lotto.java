@@ -23,6 +23,7 @@ public class Lotto {
     public static Lotto winningNumberGenerate(String winningNumber) {
         return Arrays.stream(winningNumber.split(","))
                 .map(Integer::parseInt)
+                .map(LottoNumber::numberValidation)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
     }
 
