@@ -9,6 +9,7 @@ public class LottoNumber {
     private int number;
 
     public LottoNumber(int number) {
+        numberValidation(number);
         this.number = number;
     }
 

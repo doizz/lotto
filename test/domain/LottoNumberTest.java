@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LottoNumberTest {
-
     @DisplayName("1이상45이하 숫자 체크")
     @ParameterizedTest
     @ValueSource(ints = { 0,46 })

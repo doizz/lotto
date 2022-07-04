@@ -25,10 +25,10 @@ public class LottoResults {
     public List<LottoResult> getLottoResults() {
         return Collections.unmodifiableList(this.lottoResults);
     }
-//    public int getTotalReward() {
-//        return lottoResults.stream()
-//                .map(LottoResult::winningProfit)
-//                .reduce(0, Integer::sum);
-//    }
+    public int getTotalReward() {
+        return lottoResults.stream()
+                .map(LottoResult::winningProfit)
+                .reduce(0, Integer::sum);
+    }
 
 }
