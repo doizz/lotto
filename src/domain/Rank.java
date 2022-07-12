@@ -3,10 +3,11 @@ package domain;
 import java.util.Arrays;
 
 public enum Rank {
-    FIRST(6, 200000000),
-    SECOND(5, 15000000),
-    THIRD(4, 500000),
-    FOURTH(3, 5000),
+    FIRST(6, 200_000_000),
+    SECOND(5, 15_000_000),
+    THIRD(5, 500_000),
+    FOURTH(4, 50_000),
+    FIFTH(3, 5_000),
     NO_MATCH(0, 0);
 
     private int matchCount;
@@ -25,7 +26,7 @@ public enum Rank {
         return money;
     }
 
-    public static Rank matchOf(int matchCount) {
+    public static Rank matchOf(int matchCount, boolean bonusNumber) {
         return Arrays.stream(Rank.values())
                 .filter(rank -> rank.getMatchCount() == matchCount)
                 .findFirst()

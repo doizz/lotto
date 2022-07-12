@@ -13,8 +13,8 @@ public class LottoResult {
         return new LottoResult(rank, new Count(0));
     }
 
-    public void win(int hitNumber) {
-        if (rank != Rank.matchOf(hitNumber)) {
+    public void win(int hitNumber, boolean bonusNumber) {
+        if (rank != Rank.matchOf(hitNumber, bonusNumber)) {
             return;
         }
         count.plus();

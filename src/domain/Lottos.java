@@ -14,10 +14,10 @@ public class Lottos {
         this.lottos = lottos;
     }
 
-    public LottoResults lottoNumberMatch(Lotto winningNumber) {
+    public LottoResults lottoNumberMatch(Lotto winningNumber, LottoNumber bonusNumber) {
         LottoResults lottoResults = LottoResults.of();
         for (Lotto lotto : lottos) {
-            lottoResults.win(lotto.getHitCount(winningNumber));
+            lottoResults.win(lotto.getHitCount(winningNumber), lotto.hasBonusNumber(bonusNumber));
         }
         return lottoResults;
     }

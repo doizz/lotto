@@ -10,7 +10,15 @@ public class LottoService {
         ResultView.lottoNumberPrint(lottos);
         Lotto winningNumber = Lotto.winningNumberGenerate(InputView.inputWinningNumber());
         LottoNumber bonusNumber= InputView.inputBonusNumber();
-        LottoResults lottoResults = lottos.lottoNumberMatch(winningNumber);
+        LottoResults lottoResults = lottos.lottoNumberMatch(winningNumber, bonusNumber);
         ResultView.printLottoResult(lottoResults);
     }
 }
+
+
+
+
+
+
+
+

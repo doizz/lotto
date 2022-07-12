@@ -17,9 +17,9 @@ public class LottoResults {
                 .map(LottoResult::of)
                 .collect(Collectors.toList()));
     }
-    public void win(int hitCount) {
+    public void win(int hitCount, boolean bonusNumber) {
         for (LottoResult result : lottoResults) {
-            result.win(hitCount);
+            result.win(hitCount, bonusNumber);
         }
     }
     public List<LottoResult> getLottoResults() {

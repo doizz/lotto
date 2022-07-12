@@ -41,6 +41,9 @@ public class Lotto {
     public Stream<LottoNumber> stream() {
         return lottoNumbers.stream();
     }
+    public boolean hasBonusNumber(LottoNumber bonusNumber) {
+        return lottoNumbers.contains(bonusNumber);
+    }
     @Override
     public String toString() {
         return String.valueOf(lottoNumbers);
@@ -58,4 +61,5 @@ public class Lotto {
     public int hashCode() {
         return Objects.hash(lottoNumbers);
     }
+
 }
