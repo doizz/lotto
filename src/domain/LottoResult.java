@@ -32,7 +32,4 @@ public class LottoResult {
         return rank.getMoney();
     }
 
-    public int winningProfit() {
-        return count.moneyCount(rank.getMoney());
-    }
 }
