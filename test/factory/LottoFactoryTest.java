@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class LottoTicketFactoryTest {
+class LottoFactoryTest {
 
     @DisplayName("금액에 맞는 로또 티켓을 사는 경우")
     @ParameterizedTest
@@ -19,7 +19,7 @@ class LottoTicketFactoryTest {
         assertThat(lottos.getLottoCount()).isEqualTo(ticketCount);
     }
 
-    @DisplayName("금액 부족으로 로또를 구매할 수 없는 경우 Exception 테스트")
+    @DisplayName("로또를 구매할 수 없는 경우테스트")
     @ParameterizedTest
     @ValueSource(ints = { 999,10, 888 })
     void invalid_Price(int price) {

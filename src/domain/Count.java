@@ -11,10 +11,6 @@ public class Count {
         count++;
     }
 
-    public int moneyCount(int money){
-        return money * count;
-    }
-
     public int getCount(){
         return count;
     }

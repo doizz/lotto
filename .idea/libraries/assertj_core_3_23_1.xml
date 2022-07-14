@@ -2,6 +2,7 @@
   <library name="assertj-core-3.23.1">
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/assertj-core-3.23.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/assertj-core-3.23.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

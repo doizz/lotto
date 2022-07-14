@@ -8,10 +8,19 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Lotto {
+    private final String OVER_SIZE_MESSAGE = "숫자 중복 혹은 갯수가 부적절합니다.";
+    private final int LOTTO_NUMBER_SIZE = 6;
     private List<LottoNumber> lottoNumbers;
 
     private Lotto(List<Integer> lottoNumbers) {
+        validation(lottoNumbers);
         this.lottoNumbers = convertIntegerToLottoNo(lottoNumbers);
+    }
+
+    private void validation(List<Integer> lottoNumbers) {
+        if(lottoNumbers.size() != LOTTO_NUMBER_SIZE || lottoNumbers.size() != lottoNumbers.stream().distinct().count()){
+            throw new ArrayIndexOutOfBoundsException(OVER_SIZE_MESSAGE);
+        }
     }
 
     public List<LottoNumber> convertIntegerToLottoNo(List<Integer> numbers) {
