@@ -7,11 +7,11 @@ public class Count {
         this.count = count;
     }
 
-    public void plus(){
+    public void plus() {
         count++;
     }
 
-    public int getCount(){
+    public int getCount() {
         return count;
     }
 

@@ -28,9 +28,12 @@ public enum Rank {
         return money;
     }
 
-    public boolean getHitBonusNumber(){
+    public boolean getHitBonusNumber() {
         return hitBonusNumber;
-    };
+    }
+
+    ;
+
     public static Rank matchOf(int matchCount, boolean bonusNumber) {
         return Arrays.stream(Rank.values())
                 .filter(rank -> rank.getMatchCount() == matchCount && rank.getHitBonusNumber() == bonusNumber)

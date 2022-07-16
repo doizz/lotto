@@ -32,14 +32,14 @@ class RankTest {
     @Test
     @DisplayName("로또 4등 당첨")
     public void four_place() {
-        Rank rank = Rank.matchOf(4,  false);
+        Rank rank = Rank.matchOf(4, false);
         assertThat(rank).isEqualTo(Rank.FOURTH);
     }
 
     @Test
     @DisplayName("로또 5등 당첨")
     public void fifth_place() {
-        Rank rank = Rank.matchOf(3,  false);
+        Rank rank = Rank.matchOf(3, false);
         assertThat(rank).isEqualTo(Rank.FIFTH);
     }
 

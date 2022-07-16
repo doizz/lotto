@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LottoNumberTest {
     @DisplayName("1이상45이하 숫자 체크")
     @ParameterizedTest
-    @ValueSource(ints = { 0,46 })
+    @ValueSource(ints = {0, 46})
     void numberValidation(int number) {
         assertThatThrownBy(() -> {
             LottoNumber.numberValidation(number);

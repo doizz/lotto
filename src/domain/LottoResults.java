@@ -17,11 +17,13 @@ public class LottoResults {
                 .map(LottoResult::of)
                 .collect(Collectors.toList()));
     }
+
     public void win(int hitCount, boolean bonusNumber) {
         for (LottoResult result : lottoResults) {
             result.win(hitCount, bonusNumber);
         }
     }
+
     public List<LottoResult> getLottoResults() {
         return Collections.unmodifiableList(this.lottoResults);
     }

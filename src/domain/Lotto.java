@@ -18,7 +18,7 @@ public class Lotto {
     }
 
     private void validation(List<Integer> lottoNumbers) {
-        if(lottoNumbers.size() != LOTTO_NUMBER_SIZE || lottoNumbers.size() != lottoNumbers.stream().distinct().count()){
+        if (lottoNumbers.size() != LOTTO_NUMBER_SIZE || lottoNumbers.size() != lottoNumbers.stream().distinct().count()) {
             throw new ArrayIndexOutOfBoundsException(OVER_SIZE_MESSAGE);
         }
     }
@@ -50,9 +50,11 @@ public class Lotto {
     public Stream<LottoNumber> stream() {
         return lottoNumbers.stream();
     }
+
     public boolean hasBonusNumber(LottoNumber bonusNumber) {
         return lottoNumbers.contains(bonusNumber);
     }
+
     @Override
     public String toString() {
         return String.valueOf(lottoNumbers);

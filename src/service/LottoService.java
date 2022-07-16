@@ -9,7 +9,7 @@ public class LottoService {
         Lottos lottos = Lottos.lottoGenerate(InputView.LottosOrder());
         ResultView.lottoNumberPrint(lottos);
         Lotto winningNumber = Lotto.winningNumberGenerate(InputView.inputWinningNumber());
-        LottoNumber bonusNumber= InputView.inputBonusNumber();
+        LottoNumber bonusNumber = InputView.inputBonusNumber();
         LottoResults lottoResults = lottos.lottoNumberMatch(winningNumber, bonusNumber);
         ResultView.printLottoResult(lottoResults);
     }

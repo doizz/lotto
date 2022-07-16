@@ -34,9 +34,9 @@ class LottoTest {
 
     @DisplayName("구매한 번호와 당첨번호와 일치하는 번호갯수 테스트")
     @Test
-    void lotto_hit_count(){
+    void lotto_hit_count() {
         Lotto lotto = Lotto.of(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Lotto winningNumber = Lotto.of(Arrays.asList(2,3,4,5,6,7));
+        Lotto winningNumber = Lotto.of(Arrays.asList(2, 3, 4, 5, 6, 7));
         assertThat(lotto.getHitCount(winningNumber)).isEqualTo(5);
     }
 }
