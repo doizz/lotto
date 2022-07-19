@@ -32,8 +32,6 @@ public enum Rank {
         return hitBonusNumber;
     }
 
-    ;
-
     public static Rank matchOf(int matchCount, boolean bonusNumber) {
         return Arrays.stream(Rank.values())
                 .filter(rank -> rank.getMatchCount() == matchCount && rank.getHitBonusNumber() == bonusNumber)

@@ -15,4 +15,7 @@ public class Count {
         return count;
     }
 
+    public int totalMoney(int money) {
+        return money * count;
+    }
 }

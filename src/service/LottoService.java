@@ -12,6 +12,7 @@ public class LottoService {
         LottoNumber bonusNumber = InputView.inputBonusNumber();
         LottoResults lottoResults = lottos.lottoNumberMatch(winningNumber, bonusNumber);
         ResultView.printLottoResult(lottoResults);
+        ResultView.printYield(lottos.getLottoCount(), lottoResults);
     }
 }
 

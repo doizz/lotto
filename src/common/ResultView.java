@@ -13,6 +13,8 @@ public class ResultView {
     private static final String WINNINNG_STATISTICS_MESSAGE = "당첨 통계.\n---------";
     private static final String STATISTICS_STATUS = "%d개 일치 (%d원)- %d개";
     private static final String BUY_LOTTO_COUNT = " 개를 구매했습니다.\n";
+    private static final String TOTAL_YEILD= "총 수익률은 %.2f 입니다";
+
 
     public static void resultMessage(Object message) {
         System.out.println(message);
@@ -38,4 +40,7 @@ public class ResultView {
         return sb.toString();
     }
 
+    public static void printYield(int lottoCount, LottoResults lottoResults) {
+        System.out.printf((TOTAL_YEILD) + "%n", (double)lottoResults.getTotalMoney() / (lottoCount*1000));
+    }
 }

@@ -28,4 +28,9 @@ public class LottoResults {
         return Collections.unmodifiableList(this.lottoResults);
     }
 
+    public int getTotalMoney() {
+        return lottoResults.stream()
+                .map(LottoResult::winningMoney)
+                .reduce(0, Integer::sum);
+    }
 }
