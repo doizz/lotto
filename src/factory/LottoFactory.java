@@ -2,6 +2,7 @@ package factory;
 
 import domain.Lotto;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +23,12 @@ public class LottoFactory {
         return LOTTO_NUMBER.stream()
                 .limit(LOTTO_NUMBER_MAX_SIZE)
                 .sorted()
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
+    }
+
+    public static Lotto generateLotto(String manualNumber) {
+        return Arrays.stream(manualNumber.split(","))
+                .map(Integer::parseInt)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
     }
 }
