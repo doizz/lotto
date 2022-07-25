@@ -15,7 +15,7 @@ public class Lottos {
     }
 
     public LottoResults lottoNumberMatch(Lotto winningNumber, LottoNumber bonusNumber) {
-        LottoResults lottoResults = LottoResults.of();
+        LottoResults lottoResults = LottoResults.from();
         for (Lotto lotto : lottos) {
             lottoResults.win(lotto.getHitCount(winningNumber), lotto.hasBonusNumber(bonusNumber));
         }
@@ -26,11 +26,17 @@ public class Lottos {
         return new Lottos(lottos);
     }
 
-    public static Lottos lottoGenerate(int price) {
+    public static Lottos lottoGenerate(int price, List<Lotto> lottos) {
         validatePrice(price);
+        int autoMaticLottoPrice = price - lottos.size() * MIN_BUY_TICKET_PRICE;
+        lottos.addAll(autoLottoGenerate(autoMaticLottoPrice));
+        return Lottos.of(lottos);
+    }
+
+    public static List<Lotto> autoLottoGenerate(int price) {
         return Stream.generate(LottoFactory::generateLotto)
                 .limit(price / MIN_BUY_TICKET_PRICE)
-                .collect(Collectors.collectingAndThen(Collectors.toList(), Lottos::of));
+                .collect(Collectors.toList());
     }
 
     private static void validatePrice(int price) {

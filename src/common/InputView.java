@@ -33,7 +33,7 @@ public class InputView {
         return new LottoNumber(sc.nextInt());
     }
 
-    public static int inputManualCount(){
+    public static int inputManualCount() {
         System.out.println("수동으로 구입할 로또의 갯수를 입력하세요.");
         return sc.nextInt();
     }

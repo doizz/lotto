@@ -12,7 +12,7 @@ public class LottoResults {
         this.lottoResults = lottoResults;
     }
 
-    public static LottoResults of() {
+    public static LottoResults from() {
         return new LottoResults(Arrays.stream(Rank.values())
                 .map(LottoResult::of)
                 .collect(Collectors.toList()));

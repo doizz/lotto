@@ -20,6 +20,13 @@ public enum Rank {
         this.hitBonusNumber = hitBonusNumber;
     }
 
+    public static Rank matchOf(int matchCount, boolean bonusNumber) {
+        return Arrays.stream(Rank.values())
+                .filter(rank -> rank.getMatchCount() == matchCount && rank.getHitBonusNumber() == bonusNumber)
+                .findFirst()
+                .orElse(NO_MATCH);
+    }
+
     public int getMatchCount() {
         return matchCount;
     }
@@ -30,13 +37,6 @@ public enum Rank {
 
     public boolean getHitBonusNumber() {
         return hitBonusNumber;
-    }
-
-    public static Rank matchOf(int matchCount, boolean bonusNumber) {
-        return Arrays.stream(Rank.values())
-                .filter(rank -> rank.getMatchCount() == matchCount && rank.getHitBonusNumber() == bonusNumber)
-                .findFirst()
-                .orElse(NO_MATCH);
     }
 
 

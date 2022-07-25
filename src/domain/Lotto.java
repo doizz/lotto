@@ -17,6 +17,17 @@ public class Lotto {
         this.lottoNumbers = convertIntegerToLottoNo(lottoNumbers);
     }
 
+    public static Lotto winningNumberGenerate(String winningNumber) {
+        return Arrays.stream(winningNumber.split(","))
+                .map(Integer::parseInt)
+                .map(LottoNumber::numberValidation)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
+    }
+
+    public static Lotto of(List<Integer> lottoNumbers) {
+        return new Lotto(lottoNumbers);
+    }
+
     private void validation(List<Integer> lottoNumbers) {
         if (lottoNumbers.size() != LOTTO_NUMBER_SIZE || lottoNumbers.size() != lottoNumbers.stream().distinct().count()) {
             throw new ArrayIndexOutOfBoundsException(OVER_SIZE_MESSAGE);
@@ -27,17 +38,6 @@ public class Lotto {
         return numbers.stream()
                 .map(LottoNumber::new)
                 .collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    public static Lotto winningNumberGenerate(String winningNumber) {
-        return Arrays.stream(winningNumber.split(","))
-                .map(Integer::parseInt)
-                .map(LottoNumber::numberValidation)
-                .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
-    }
-
-    public static Lotto of(List<Integer> lottoNumbers) {
-        return new Lotto(lottoNumbers);
     }
 
     public int getHitCount(Lotto winningLotto) {

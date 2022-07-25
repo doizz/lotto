@@ -1,10 +1,13 @@
 package factory;
 
+import domain.Lotto;
 import domain.Lottos;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -15,7 +18,7 @@ class LottoFactoryTest {
     @ParameterizedTest
     @CsvSource(value = {"1001 :1", "12780 :12", "1999 :1", "234567 : 234"}, delimiter = ':')
     void lotto_Ticket_Purchase_Test(int price, int ticketCount) {
-        Lottos lottos = Lottos.lottoGenerate(price);
+        Lottos lottos = Lottos.of(Lottos.autoLottoGenerate(price));
         assertThat(lottos.getLottoCount()).isEqualTo(ticketCount);
     }
 
@@ -24,7 +27,7 @@ class LottoFactoryTest {
     @ValueSource(ints = {999, 10, 888})
     void invalid_Price(int price) {
         assertThatThrownBy(() -> {
-            Lottos.lottoGenerate(price);
+            Lottos lottos = Lottos.of(Lottos.autoLottoGenerate(price));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }
