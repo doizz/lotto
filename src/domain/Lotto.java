@@ -1,5 +1,7 @@
 package domain;
 
+import exception.ArrayOverSizeException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +32,7 @@ public class Lotto {
 
     private void validation(List<Integer> lottoNumbers) {
         if (lottoNumbers.size() != LOTTO_NUMBER_SIZE || lottoNumbers.size() != lottoNumbers.stream().distinct().count()) {
-            throw new ArrayIndexOutOfBoundsException(OVER_SIZE_MESSAGE);
+            throw new ArrayOverSizeException(OVER_SIZE_MESSAGE);
         }
     }
 

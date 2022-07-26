@@ -1,5 +1,6 @@
 package domain;
 
+import exception.MinPriceException;
 import factory.LottoFactory;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class Lottos {
 
     private static void validatePrice(int price) {
         if (price < MIN_BUY_TICKET_PRICE) {
-            throw new IllegalArgumentException("금액이 부족합니다.");
+            throw new MinPriceException("금액이 부족합니다.");
         }
     }
 
