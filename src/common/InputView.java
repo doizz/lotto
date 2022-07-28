@@ -47,7 +47,7 @@ public class InputView {
     }
 
     private static Lotto inputLottoNo() {
-        return LottoFactory.generateLotto(sc.nextLine());
+        return LottoFactory.manualGenerateLotto(sc.nextLine());
     }
 
 

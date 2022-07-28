@@ -38,7 +38,7 @@ public class ResultView {
         return sb.toString();
     }
 
-    public static void printYield(int lottoCount, LottoResults lottoResults) {
-        System.out.printf((TOTAL_YEILD) + "%n", (double)lottoResults.getTotalMoney() / (lottoCount*1000));
+    public static void printYield(double yield) {
+        System.out.printf((TOTAL_YEILD) + "%n", yield);
     }
 }

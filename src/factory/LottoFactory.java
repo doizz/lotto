@@ -26,7 +26,7 @@ public class LottoFactory {
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));
     }
 
-    public static Lotto generateLotto(String manualNumber) {
+    public static Lotto manualGenerateLotto(String manualNumber) {
         return Arrays.stream(manualNumber.split(","))
                 .map(Integer::parseInt)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Lotto::of));

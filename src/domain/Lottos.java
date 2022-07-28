@@ -15,14 +15,6 @@ public class Lottos {
         this.lottos = lottos;
     }
 
-    public LottoResults lottoNumberMatch(Lotto winningNumber, LottoNumber bonusNumber) {
-        LottoResults lottoResults = LottoResults.from();
-        for (Lotto lotto : lottos) {
-            lottoResults.win(lotto.getHitCount(winningNumber), lotto.hasBonusNumber(bonusNumber));
-        }
-        return lottoResults;
-    }
-
     public static Lottos of(List<Lotto> lottos) {
         return new Lottos(lottos);
     }
@@ -44,6 +36,14 @@ public class Lottos {
         if (price < MIN_BUY_TICKET_PRICE) {
             throw new MinPriceException("금액이 부족합니다.");
         }
+    }
+
+    public LottoResults lottoNumberMatch(Lotto winningNumber, LottoNumber bonusNumber) {
+        LottoResults lottoResults = LottoResults.from();
+        for (Lotto lotto : lottos) {
+            lottoResults.win(lotto.getHitCount(winningNumber), lotto.hasBonusNumber(bonusNumber));
+        }
+        return lottoResults;
     }
 
     public Stream<Lotto> stream() {

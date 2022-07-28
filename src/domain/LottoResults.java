@@ -33,4 +33,7 @@ public class LottoResults {
                 .map(LottoResult::winningMoney)
                 .reduce(0, Integer::sum);
     }
+    public double getTotalYield(int lottoCount){
+        return (double) getTotalMoney() / (lottoCount * 1000);
+    }
 }

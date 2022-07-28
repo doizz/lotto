@@ -27,7 +27,7 @@ class LottoFactoryTest {
     @ValueSource(ints = {999, 10, 888})
     void invalid_Price(int price) {
         assertThatThrownBy(() -> {
-            Lottos lottos = Lottos.of(Lottos.autoLottoGenerate(price));
+            Lottos.of(Lottos.autoLottoGenerate(price));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }
