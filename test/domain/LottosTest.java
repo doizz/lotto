@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LottosTest {
+
     @DisplayName("금액에 맞는 로또가 구매되는지 테스트")
     @ParameterizedTest
     @CsvSource(value = {"10_000,10", "1_000,1", "5_000,5"})
@@ -19,4 +20,5 @@ class LottosTest {
         Lottos lottos = Lottos.of(autoLottoGenerate(price));
         assertThat(lottoCount).isEqualTo(lottos.getLottoCount());
     }
+
 }
